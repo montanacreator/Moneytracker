@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moneytracker</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Money">
+<meta name="theme-color" content="#6d1a2c">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="lock" hidden><div><img class="avatar" src="assets/icon.png" alt="" style="margin:auto"><h2>Moneytracker</h2><input id="lp" type="password" placeholder="Passwort" autocomplete="off" aria-label="Passwort"><button class="add" id="lu" type="button">Entsperren</button><p class="err" id="le" role="alert"></p></div></div>
+<main>
+<header>
+  <div class="brand"><img class="avatar" src="assets/icon.png" alt="Profilbild M" width="44" height="44"><h1>Moneytracker</h1></div>
+  <div class="hr"><button class="round" data-act="open-entry" type="button" aria-label="Neuer Eintrag">+</button><button class="round" data-act="view" data-v="set" type="button" aria-label="Einstellungen">⚙︎</button></div>
+</header>
+<section class="saldo" aria-live="polite">
+  <div class="top"><small id="tl">Gesamtguthaben</small><select id="month" aria-label="Monat"></select></div>
+  <div class="big" id="total">0,00 €</div>
+  <div class="split"><div><span>Einnahmen im Monat</span><b id="inc">0,00 €</b></div><div><span>Ausgaben im Monat</span><b id="exp">0,00 €</b></div></div>
+</section>
+<div class="accs" id="accs"></div>
+<div class="tiles" id="tiles"></div>
+</main>
+
+<dialog id="dV" aria-labelledby="vt"><div class="vh"><h2 id="vt"></h2><button class="lnk" data-act="close" type="button">Schließen</button></div><div id="vb"></div><p class="err" id="vm" role="alert"></p></dialog>
+
+<dialog id="dE" aria-labelledby="tE">
+  <h2 id="tE" style="margin-bottom:14px">Neuer Eintrag</h2>
+  <div class="seg" role="group" aria-label="Art"><button type="button" class="e" id="bE" aria-pressed="true">Ausgabe</button><button type="button" class="i" id="bI" aria-pressed="false">Einnahme</button></div>
+  <div class="fld">
+    <label for="amount">Betrag in €</label><input id="amount" type="number" inputmode="decimal" step="0.01" min="0">
+    <label for="date">Datum</label><input id="date" type="date">
+    <label for="acc">Konto</label><select id="acc"></select>
+    <label for="cat">Kategorie</label><select id="cat"></select>
+    <label for="note">Notiz (optional)</label><input id="note" type="text" maxlength="60">
+  </div>
+  <p class="err" id="errE" role="alert"></p>
+  <div class="btns"><button type="button" id="cE">Abbrechen</button><button type="button" class="ok" id="sE">Speichern</button></div>
+</dialog>
+
+<script src="js/app.js"></script>
+</body>
+</html>
